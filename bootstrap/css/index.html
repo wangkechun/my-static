@@ -28,24 +28,12 @@
 
 <link href="../assets/css/docs.min.css" rel="stylesheet">
 
-<!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="../assets/js/ie-emulation-modes-warning.js"></script>
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="icon" href="../favicon.ico">
-<script>
-  var _hmt = _hmt || [];
-</script>
   </head>
   <body>
-    <a id="skippy" class="sr-only sr-only-focusable" href="index.html#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
 
     <!-- Docs master nav -->
     <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
@@ -62,24 +50,21 @@
     <nav id="bs-navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="../getting-started.1" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-起步'])">起步</a>
+          <a href="../getting-started.1">起步</a>
         </li>
         <li class="active">
-          <a href="index.html" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-全局CSS样式'])">全局 CSS 样式</a>
+          <a href="index.html">全局 CSS 样式</a>
         </li>
         <li>
-          <a href="../components.1" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-组件'])">组件</a>
+          <a href="../components.1">组件</a>
         </li>
         <li>
-          <a href="../javascript/index.html" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-JavaScript插件'])">JavaScript 插件</a>
+          <a href="../javascript/index.html">JavaScript 插件</a>
         </li>
-        <li>
-          <a href="../customize/index.html" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-定制'])">定制</a>
-        </li>
-        <li><a href="//expo.bootcss.com" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-网站实例'])" target="_blank">网站实例</a></li>
+
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="//www.bootcss.com/" onclick="_hmt.push(['_trackEvent', 'docv3-navbar', 'click', 'V3导航-Bootstrap中文网'])" target="_blank">Bootstrap中文网</a></li>
+        <li><a href="//www.bootcss.com/" target="_blank">Bootstrap中文网</a></li>
       </ul>
     </nav>
   </div>
@@ -144,7 +129,7 @@
 <div class="bs-docs-section">
   <h1 id="grid" class="page-header">栅格系统</h1>
 
-  <p class="lead">Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的<a href="index.html#grid-example-basic">预定义类</a>，还有强大的<a href="index.html#grid-less">mixin 用于生成更具语义的布局</a>。</p>
+  <p class="lead">Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多12列。它包含了易于使用的<a href="#grid-example-basic">预定义类</a>，还有强大的<a href="#grid-less">mixin 用于生成更具语义的布局</a>。</p>
 
   <h2 id="grid-intro">简介</h2>
   <p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。下面就介绍一下 Bootstrap 栅格系统的工作原理：</p>
@@ -402,7 +387,7 @@
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
   <h2 id="grid-responsive-resets">响应式列重置</h2>
-  <p>即便有上面给出的四组栅格class，你也不免会碰到一些问题，例如，在某些阈值时，某些列可能会出现比别的列高的情况。为了克服这一问题，建议联合使用 <code>.clearfix</code> 和 <a href="index.html#responsive-utilities">响应式工具类</a>。</p>
+  <p>即便有上面给出的四组栅格class，你也不免会碰到一些问题，例如，在某些阈值时，某些列可能会出现比别的列高的情况。为了克服这一问题，建议联合使用 <code>.clearfix</code> 和 <a href="#responsive-utilities">响应式工具类</a>。</p>
   <div class="bs-docs-grid">
     <div class="row show-grid">
       <div class="col-xs-6 col-sm-3">
@@ -511,7 +496,7 @@
 <span class="nt">&lt;/div&gt;</span></code></pre></div>
 
   <h2 id="grid-less">Less mixin 和变量</h2>
-  <p>除了用于快速布局的<a href="index.html#grid-example-basic">预定义栅格类</a>，Bootstrap 还包含了一组 Less 变量和 mixin 用于帮你生成简单、语义化的布局。</p>
+  <p>除了用于快速布局的<a href="#grid-example-basic">预定义栅格类</a>，Bootstrap 还包含了一组 Less 变量和 mixin 用于帮你生成简单、语义化的布局。</p>
 
   <h3>变量</h3>
   <p>通过变量来定义列数、槽（gutter）宽、媒体查询阈值（用于确定合适让列浮动）。我们使用这些变量生成预定义的栅格类，如上所示，还有如下所示的定制 mixin。</p>
@@ -2090,7 +2075,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
 
   <div class="bs-callout bs-callout-warning" id="callout-fieldset-disabled-pointer-events">
     <h4><code>&lt;a&gt;</code> 标签的链接功能不受影响</h4>
-    <p>默认情况下，浏览器会将 <code>&lt;fieldset disabled&gt;</code> 内所有的原生的表单控件（<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code> 和 <code>&lt;button&gt;</code> 元素）设置为禁用状态，防止键盘和鼠标与他们交互。然而，如果如果表单中还包含 <code>&lt;a ... class="btn btn-*"&gt;</code> 元素，这些元素将只被赋予 <code>pointer-events: none</code> 属性。正如在关于 <a href="index.html#buttons-disabled">禁用状态的按钮</a> 章节中（尤其是关于锚点元素的子章节中）所描述的那样，该 CSS 属性尚不规范，并且在 Opera 18 及更低版本的浏览器或 Internet Explorer 11 总没有得到全面支持，并且不会阻止键盘用户能够获取焦点或激活这些链接。所以为了安全起见，建议使用自定义 JavaScript 来禁用这些链接。</p>
+    <p>默认情况下，浏览器会将 <code>&lt;fieldset disabled&gt;</code> 内所有的原生的表单控件（<code>&lt;input&gt;</code>、<code>&lt;select&gt;</code> 和 <code>&lt;button&gt;</code> 元素）设置为禁用状态，防止键盘和鼠标与他们交互。然而，如果如果表单中还包含 <code>&lt;a ... class="btn btn-*"&gt;</code> 元素，这些元素将只被赋予 <code>pointer-events: none</code> 属性。正如在关于 <a href="#buttons-disabled">禁用状态的按钮</a> 章节中（尤其是关于锚点元素的子章节中）所描述的那样，该 CSS 属性尚不规范，并且在 Opera 18 及更低版本的浏览器或 Internet Explorer 11 总没有得到全面支持，并且不会阻止键盘用户能够获取焦点或激活这些链接。所以为了安全起见，建议使用自定义 JavaScript 来禁用这些链接。</p>
   </div>
 
   <div class="bs-callout bs-callout-danger" id="callout-fieldset-disabled-ie">
@@ -2158,7 +2143,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
   <div class="bs-callout bs-callout-warning" id="callout-form-validation-state-accessibility">
     <h4>将验证状态传达给辅助设备和盲人用户</h4>
     <p>使用这些校验样式只是为表单控件提供一个可视的、基于色彩的提示，但是并不能将这种提示信息传达给使用辅助设备的用户 - 例如屏幕阅读器 - 或者色盲用户。</p>
-    <p>为了确保所有用户都能获取正确信息，Bootstrap 还提供了另一种提示方式。例如，你可以在表单控件的 <code>&lt;label&gt;</code> 标签上以文本的形式显示提示信息（就像下面代码中所展示的）；包含一个 <a href="../components.1#glyphicons">Glyphicon 字体图标</a> （还有赋予 <code>.sr-only</code> 类的文本信息 - 参考<a href="../components.1#glyphicons-examples">Glyphicon 字体图标实例</a>）；或者提供一个额外的 <a href="index.html#forms-help-text">辅助信息</a> 块。另外，对于使用辅助设备的用户，无效的表单控件还可以赋予一个 <code>aria-invalid="true"</code> 属性。</p>
+    <p>为了确保所有用户都能获取正确信息，Bootstrap 还提供了另一种提示方式。例如，你可以在表单控件的 <code>&lt;label&gt;</code> 标签上以文本的形式显示提示信息（就像下面代码中所展示的）；包含一个 <a href="../components.1#glyphicons">Glyphicon 字体图标</a> （还有赋予 <code>.sr-only</code> 类的文本信息 - 参考<a href="../components.1#glyphicons-examples">Glyphicon 字体图标实例</a>）；或者提供一个额外的 <a href="#forms-help-text">辅助信息</a> 块。另外，对于使用辅助设备的用户，无效的表单控件还可以赋予一个 <code>aria-invalid="true"</code> 属性。</p>
   </div>
 
   <div class="bs-example" data-example-id="form-validation-states">
@@ -2555,7 +2540,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
   <h2 id="buttons-tags">可作为按钮使用的标签或元素</h2>
   <p>为 <code>&lt;a&gt;</code>、<code>&lt;button&gt;</code> 或 <code>&lt;input&gt;</code> 元素添加按钮类（button class）即可使用 Bootstrap 提供的样式。</p>
   <form class="bs-example" data-example-id="btn-tags">
-    <a class="btn btn-default" href="index.html#" role="button">Link</a>
+    <a class="btn btn-default" href="#" role="button">Link</a>
     <button class="btn btn-default" type="submit">Button</button>
     <input class="btn btn-default" type="button" value="Input">
     <input class="btn btn-default" type="submit" value="Submit">
@@ -2681,8 +2666,8 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
   <h3>链接（<code>&lt;a&gt;</code>）元素</h3>
   <p>可以为基于 <code>&lt;a&gt;</code> 元素创建的按钮添加 <code>.active</code> 类。</p>
   <p class="bs-example" data-example-id="active-anchor-btns">
-    <a href="index.html#" class="btn btn-primary btn-lg active" role="button">Primary link</a>
-    <a href="index.html#" class="btn btn-default btn-lg active" role="button">Link</a>
+    <a href="#" class="btn btn-primary btn-lg active" role="button">Primary link</a>
+    <a href="#" class="btn btn-default btn-lg active" role="button">Link</a>
   </p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg active"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary link<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg active"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span></code></pre></div>
@@ -2708,8 +2693,8 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
   <h3>链接（<code>&lt;a&gt;</code>）元素</h3>
   <p>为基于 <code>&lt;a&gt;</code> 元素创建的按钮添加 <code>.disabled</code> 类。</p>
   <p class="bs-example" data-example-id="disabled-anchor-btns">
-    <a href="index.html#" class="btn btn-primary btn-lg disabled" role="button">Primary link</a>
-    <a href="index.html#" class="btn btn-default btn-lg disabled" role="button">Link</a>
+    <a href="#" class="btn btn-primary btn-lg disabled" role="button">Primary link</a>
+    <a href="#" class="btn btn-default btn-lg disabled" role="button">Link</a>
   </p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg disabled"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Primary link<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-default btn-lg disabled"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/a&gt;</span></code></pre></div>
@@ -2727,7 +2712,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
 
   <h2 id="images-responsive">响应式图片</h2>
   <p>在 Bootstrap 版本 3 中，通过为图片添加 <code>.img-responsive</code> 类可以让图片支持响应式布局。其实质是为图片设置了 <code>max-width: 100%;</code>、 <code>height: auto;</code> 和 <code>display: block;</code> 属性，从而让图片在其父元素中更好的缩放。</p>
-  <p>如果需要让使用了 <code>.img-responsive</code> 类的图片水平居中，请使用 <code>.center-block</code> 类，不要用 <code>.text-center</code>。 <a href="index.html#helper-classes-center">请参考助手类章节</a> 了解更多关于 <code>.center-block</code> 的用法。</p>
+  <p>如果需要让使用了 <code>.img-responsive</code> 类的图片水平居中，请使用 <code>.center-block</code> 类，不要用 <code>.text-center</code>。 <a href="#helper-classes-center">请参考助手类章节</a> 了解更多关于 <code>.center-block</code> 的用法。</p>
   <div class="bs-callout bs-callout-warning" id="callout-images-ie-svg">
     <h4>SVG 图像和 IE 8-10</h4>
     <p>在 Internet Explorer 8-10 中，设置为 <code>.img-responsive</code> 的 SVG 图像显示出的尺寸不匀称。为了解决这个问题，在出问题的地方添加 <code>width: 100% \9;</code> 即可。Bootstrap 并没有自动为所有图像元素设置这一属性，因为这会导致其他图像格式出现错乱。</p>
@@ -2798,7 +2783,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
   </div>
   <div class="bs-callout bs-callout-warning" id="callout-helper-bg-accessibility">
     <h4>Conveying meaning to assistive technologies</h4>
-    <p>As with <a href="index.html#helper-classes-colors">contextual colors</a>, ensure that any meaning conveyed through color is also conveyed in a format that is not purely presentational.</p>
+    <p>As with <a href="#helper-classes-colors">contextual colors</a>, ensure that any meaning conveyed through color is also conveyed in a format that is not purely presentational.</p>
   </div>
 
   <h3 id="helper-classes-close">关闭按钮</h3>
@@ -2882,7 +2867,7 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
 
 
   <h3 id="helper-classes-show-hide">显示或隐藏内容</h3>
-  <p><code>.show</code> 和 <code>.hidden</code> 类可以强制任意元素显示或隐藏(<strong>对于屏幕阅读器也能起效</strong>)。这些类通过 <code>!important</code> 来避免 CSS 样式优先级问题，就像 <a href="index.html#helper-classes-floats">quick floats</a> 一样的做法。注意，这些类只对块级元素起作用，另外，还可以作为 mixin 使用。</p>
+  <p><code>.show</code> 和 <code>.hidden</code> 类可以强制任意元素显示或隐藏(<strong>对于屏幕阅读器也能起效</strong>)。这些类通过 <code>!important</code> 来避免 CSS 样式优先级问题，就像 <a href="#helper-classes-floats">quick floats</a> 一样的做法。注意，这些类只对块级元素起作用，另外，还可以作为 mixin 使用。</p>
   <p><code>.hide</code> 类仍然可用，但是它不能对屏幕阅读器起作用，并且从 v3.0.1 版本开始就<strong>不建议使用</strong>了。请使用 <code>.hidden</code> 或 <code>.sr-only</code> 。</p>
   <p>另外，<code>.invisible</code> 类可以被用来仅仅影响元素的可见性，也就是所，元素的 <code>display</code> 属性不被改变，并且这个元素仍然能够影响文档流的排布。</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"show"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
@@ -3190,14 +3175,14 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
 
   <p class="lead">Bootstrap 的 CSS 文件是通过 Less 源码编译而来的。Less 是一门预处理语言，支持变量、mixin、函数等额外功能。对于希望使用 Less 源码而非编译而来的 CSS 文件的用户，Bootstrap 框架中包含的大量变量、mixin 将非常有价值。</p>
 
-  <p>针对栅格系统的变量和 mixin 包含在<a href="index.html#grid-less">栅格系统</a>章节。</p>
+  <p>针对栅格系统的变量和 mixin 包含在<a href="#grid-less">栅格系统</a>章节。</p>
 
 
   <h2 id="less-bootstrap">编译 Bootstrap</h2>
   <p>可以通过两种方式使用 Bootstrap ：使用编译后的 CSS 文件或者使用 Less 源码文件。若要编译 Less 文件，<a href="../getting-started.1#grunt">请参考“起步”章节的内容</a>以了解如何设置开发环境并运行必须的编译指令。</p>
 
   <h2 id="less-variables">变量</h2>
-  <p>整个 Bootstrap 项目中使用了大量的变量，这些变量被用来代表颜色、空白（内部、边距）、字体等。详细内容请参考<a href="../customize/index.html#less-variables-section">定制工具</a>。</p>
+  <p>整个 Bootstrap 项目中使用了大量的变量，这些变量被用来代表颜色、空白（内部、边距）、字体等。详细内容请参考<a href="../customize/#less-variables-section">定制工具</a>。</p>
 
   <h3 id="less-variables-colors">颜色</h3>
   <p>Bootstrap 使用了两种颜色模式：灰度颜色和语义颜色。灰度颜色用于快速获取常用的黑色色调；语义颜色包含了各种赋予语义的颜色值。</p>
@@ -3691,149 +3676,149 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
             <ul class="nav bs-docs-sidenav">
 
                 <li>
-  <a href="index.html#overview">概览</a>
+  <a href="#overview">概览</a>
   <ul class="nav">
-    <li><a href="index.html#overview-doctype">HTML5 文档类型</a></li>
-    <li><a href="index.html#overview-mobile">移动设备优先</a></li>
-    <li><a href="index.html#overview-type-links">排版与链接</a></li>
-    <li><a href="index.html#overview-normalize">Normalize.css</a></li>
-    <li><a href="index.html#overview-container">布局容器</a></li>
+    <li><a href="#overview-doctype">HTML5 文档类型</a></li>
+    <li><a href="#overview-mobile">移动设备优先</a></li>
+    <li><a href="#overview-type-links">排版与链接</a></li>
+    <li><a href="#overview-normalize">Normalize.css</a></li>
+    <li><a href="#overview-container">布局容器</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#grid">栅格系统</a>
+  <a href="#grid">栅格系统</a>
   <ul class="nav">
-    <li><a href="index.html#grid-intro">简介</a></li>
-    <li><a href="index.html#grid-media-queries">媒体查询</a></li>
-    <li><a href="index.html#grid-options">栅格参数</a></li>
-    <li><a href="index.html#grid-example-basic">实例：从堆叠到水平排列</a></li>
-    <li><a href="index.html#grid-example-fluid">实例：流式布局容器</a></li>
-    <li><a href="index.html#grid-example-mixed">实例：移动设备和桌面屏幕</a></li>
-    <li><a href="index.html#grid-example-mixed-complete">实例：手机、平板、桌面</a></li>
-    <li><a href="index.html#grid-example-wrapping">实例：多余的列（column）将另起一行排列</a></li>
-    <li><a href="index.html#grid-responsive-resets">Responsive column resets</a></li>
-    <li><a href="index.html#grid-offsetting">列偏移</a></li>
-    <li><a href="index.html#grid-nesting">嵌套列</a></li>
-    <li><a href="index.html#grid-column-ordering">列排序</a></li>
-    <li><a href="index.html#grid-less">Less mixin 和变量</a></li>
+    <li><a href="#grid-intro">简介</a></li>
+    <li><a href="#grid-media-queries">媒体查询</a></li>
+    <li><a href="#grid-options">栅格参数</a></li>
+    <li><a href="#grid-example-basic">实例：从堆叠到水平排列</a></li>
+    <li><a href="#grid-example-fluid">实例：流式布局容器</a></li>
+    <li><a href="#grid-example-mixed">实例：移动设备和桌面屏幕</a></li>
+    <li><a href="#grid-example-mixed-complete">实例：手机、平板、桌面</a></li>
+    <li><a href="#grid-example-wrapping">实例：多余的列（column）将另起一行排列</a></li>
+    <li><a href="#grid-responsive-resets">Responsive column resets</a></li>
+    <li><a href="#grid-offsetting">列偏移</a></li>
+    <li><a href="#grid-nesting">嵌套列</a></li>
+    <li><a href="#grid-column-ordering">列排序</a></li>
+    <li><a href="#grid-less">Less mixin 和变量</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#type">排版</a>
+  <a href="#type">排版</a>
   <ul class="nav">
-    <li><a href="index.html#type-headings">标题</a></li>
-    <li><a href="index.html#type-body-copy">页面主体</a></li>
-    <li><a href="index.html#type-inline-text">内联文本元素</a></li>
-    <li><a href="index.html#type-alignment">对齐</a></li>
-    <li><a href="index.html#type-transformation">改变大小写</a></li>
-    <li><a href="index.html#type-abbreviations">缩略语</a></li>
-    <li><a href="index.html#type-addresses">地址</a></li>
-    <li><a href="index.html#type-blockquotes">引用</a></li>
-    <li><a href="index.html#type-lists">列表</a></li>
+    <li><a href="#type-headings">标题</a></li>
+    <li><a href="#type-body-copy">页面主体</a></li>
+    <li><a href="#type-inline-text">内联文本元素</a></li>
+    <li><a href="#type-alignment">对齐</a></li>
+    <li><a href="#type-transformation">改变大小写</a></li>
+    <li><a href="#type-abbreviations">缩略语</a></li>
+    <li><a href="#type-addresses">地址</a></li>
+    <li><a href="#type-blockquotes">引用</a></li>
+    <li><a href="#type-lists">列表</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#code">代码</a>
+  <a href="#code">代码</a>
   <ul class="nav">
-    <li><a href="index.html#code-inline">内联代码</a></li>
-    <li><a href="index.html#code-user-input">用户输入</a></li>
-    <li><a href="index.html#code-block">基本代码块</a></li>
-    <li><a href="index.html#code-variables">变量</a></li>
-    <li><a href="index.html#code-sample-output">程序输出</a></li>
+    <li><a href="#code-inline">内联代码</a></li>
+    <li><a href="#code-user-input">用户输入</a></li>
+    <li><a href="#code-block">基本代码块</a></li>
+    <li><a href="#code-variables">变量</a></li>
+    <li><a href="#code-sample-output">程序输出</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#tables">表格</a>
+  <a href="#tables">表格</a>
   <ul class="nav">
-    <li><a href="index.html#tables-example">基本实例</a></li>
-    <li><a href="index.html#tables-striped">条纹状表格</a></li>
-    <li><a href="index.html#tables-bordered">带边框的表格</a></li>
-    <li><a href="index.html#tables-hover-rows">鼠标悬停</a></li>
-    <li><a href="index.html#tables-condensed">紧缩表格</a></li>
-    <li><a href="index.html#tables-contextual-classes">状态类</a></li>
-    <li><a href="index.html#tables-responsive">响应式表格</a></li>
+    <li><a href="#tables-example">基本实例</a></li>
+    <li><a href="#tables-striped">条纹状表格</a></li>
+    <li><a href="#tables-bordered">带边框的表格</a></li>
+    <li><a href="#tables-hover-rows">鼠标悬停</a></li>
+    <li><a href="#tables-condensed">紧缩表格</a></li>
+    <li><a href="#tables-contextual-classes">状态类</a></li>
+    <li><a href="#tables-responsive">响应式表格</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#forms">表单</a>
+  <a href="#forms">表单</a>
   <ul class="nav">
-    <li><a href="index.html#forms-example">基本实例</a></li>
-    <li><a href="index.html#forms-inline">内联表单</a></li>
-    <li><a href="index.html#forms-horizontal">水平排列的表单</a></li>
-    <li><a href="index.html#forms-controls">被支持的控件</a></li>
-    <li><a href="index.html#forms-controls-static">静态控件</a></li>
-    <li><a href="index.html#forms-control-focus">焦点状态</a></li>
-    <li><a href="index.html#forms-control-disabled">禁用状态</a></li>
-    <li><a href="index.html#forms-control-readonly">只读状态</a></li>
-    <li><a href="index.html#forms-control-validation">校验状态</a></li>
-    <li><a href="index.html#forms-control-sizes">控件尺寸</a></li>
-    <li><a href="index.html#forms-help-text">辅助文本</a></li>
+    <li><a href="#forms-example">基本实例</a></li>
+    <li><a href="#forms-inline">内联表单</a></li>
+    <li><a href="#forms-horizontal">水平排列的表单</a></li>
+    <li><a href="#forms-controls">被支持的控件</a></li>
+    <li><a href="#forms-controls-static">静态控件</a></li>
+    <li><a href="#forms-control-focus">焦点状态</a></li>
+    <li><a href="#forms-control-disabled">禁用状态</a></li>
+    <li><a href="#forms-control-readonly">只读状态</a></li>
+    <li><a href="#forms-control-validation">校验状态</a></li>
+    <li><a href="#forms-control-sizes">控件尺寸</a></li>
+    <li><a href="#forms-help-text">辅助文本</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#buttons">按钮</a>
+  <a href="#buttons">按钮</a>
   <ul class="nav">
-    <li><a href="index.html#buttons-tags">可作为按钮使用的标签或元素</a></li>
-    <li><a href="index.html#buttons-options">预定义样式</a></li>
-    <li><a href="index.html#buttons-sizes">尺寸</a></li>
-    <li><a href="index.html#buttons-active">激活状态</a></li>
-    <li><a href="index.html#buttons-disabled">禁用状态</a></li>
+    <li><a href="#buttons-tags">可作为按钮使用的标签或元素</a></li>
+    <li><a href="#buttons-options">预定义样式</a></li>
+    <li><a href="#buttons-sizes">尺寸</a></li>
+    <li><a href="#buttons-active">激活状态</a></li>
+    <li><a href="#buttons-disabled">禁用状态</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#images">图片</a>
+  <a href="#images">图片</a>
   <ul class="nav">
-    <li><a href="index.html#images-responsive">响应式图片</a></li>
-    <li><a href="index.html#images-shapes">图片形状</a></li>
+    <li><a href="#images-responsive">响应式图片</a></li>
+    <li><a href="#images-shapes">图片形状</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#helper-classes">辅助类</a>
+  <a href="#helper-classes">辅助类</a>
   <ul class="nav">
-    <li><a href="index.html#helper-classes-colors">情境文本颜色</a></li>
-    <li><a href="index.html#helper-classes-backgrounds">情境背景色</a></li>
-    <li><a href="index.html#helper-classes-close">关闭按钮</a></li>
-    <li><a href="index.html#helper-classes-carets">三角符号</a></li>
-    <li><a href="index.html#helper-classes-floats">快速浮动</a></li>
-    <li><a href="index.html#helper-classes-center">让内容块居中</a></li>
-    <li><a href="index.html#helper-classes-clearfix">清除浮动</a></li>
-    <li><a href="index.html#helper-classes-show-hide">显示或隐藏内容</a></li>
-    <li><a href="index.html#helper-classes-screen-readers">屏幕阅读器和键盘导航</a></li>
-    <li><a href="index.html#helper-classes-image-replacement">图片替换</a></li>
+    <li><a href="#helper-classes-colors">情境文本颜色</a></li>
+    <li><a href="#helper-classes-backgrounds">情境背景色</a></li>
+    <li><a href="#helper-classes-close">关闭按钮</a></li>
+    <li><a href="#helper-classes-carets">三角符号</a></li>
+    <li><a href="#helper-classes-floats">快速浮动</a></li>
+    <li><a href="#helper-classes-center">让内容块居中</a></li>
+    <li><a href="#helper-classes-clearfix">清除浮动</a></li>
+    <li><a href="#helper-classes-show-hide">显示或隐藏内容</a></li>
+    <li><a href="#helper-classes-screen-readers">屏幕阅读器和键盘导航</a></li>
+    <li><a href="#helper-classes-image-replacement">图片替换</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#responsive-utilities">响应式工具</a>
+  <a href="#responsive-utilities">响应式工具</a>
   <ul class="nav">
-    <li><a href="index.html#responsive-utilities-classes">可用的类</a></li>
-    <li><a href="index.html#responsive-utilities-print">打印类</a></li>
-    <li><a href="index.html#responsive-utilities-tests">测试用例</a></li>
+    <li><a href="#responsive-utilities-classes">可用的类</a></li>
+    <li><a href="#responsive-utilities-print">打印类</a></li>
+    <li><a href="#responsive-utilities-tests">测试用例</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#less">使用 Less</a>
+  <a href="#less">使用 Less</a>
   <ul class="nav">
-    <li><a href="index.html#less-bootstrap">编译 Bootstrap</a></li>
-    <li><a href="index.html#less-variables">变量</a></li>
-    <li><a href="index.html#less-mixins-vendor">针对特定厂商的 mixin</a></li>
-    <li><a href="index.html#less-mixins-utility">工具 mixin</a></li>
+    <li><a href="#less-bootstrap">编译 Bootstrap</a></li>
+    <li><a href="#less-variables">变量</a></li>
+    <li><a href="#less-mixins-vendor">针对特定厂商的 mixin</a></li>
+    <li><a href="#less-mixins-utility">工具 mixin</a></li>
   </ul>
 </li>
 <li>
-  <a href="index.html#sass">使用 Sass</a>
+  <a href="#sass">使用 Sass</a>
   <ul class="nav">
-    <li><a href="index.html#sass-contents">包含的内容</a></li>
-    <li><a href="index.html#sass-installation">安装</a></li>
+    <li><a href="#sass-contents">包含的内容</a></li>
+    <li><a href="#sass-installation">安装</a></li>
   </ul>
 </li>
 
 
             </ul>
-            <a class="back-to-top" href="index.html#top">
+            <a class="back-to-top" href="#top">
               返回顶部
             </a>
 
-            <a href="index.html#" class="bs-docs-theme-toggle" role="button">
+            <a href="#" class="bs-docs-theme-toggle" role="button">
               主题预览
             </a>
 
@@ -3887,23 +3872,5 @@ To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span 
 
 
 
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-
-<!-- Analytics
-================================================== -->
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " //");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fbdb993b828cbe079a7fbc1a951f44726' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<!-- 全局统计代码 -->
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " //");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F079fac161efc4b2a6f31e80064f14e82' type='text/javascript'%3E%3C/script%3E"));
-</script>
   </body>
 </html>
