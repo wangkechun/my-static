@@ -252,11 +252,7 @@ th {
     border: 1px solid #ddd !important;
   }
 }
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.eot?') format('embedded-opentype'), url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://fontawesome.io/assets/css/fonts/glyphicons-halflings-regular.svg') format('svg');
-}
+
 .glyphicon {
   position: relative;
   top: 1px;
