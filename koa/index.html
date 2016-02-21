@@ -1,6 +1,259 @@
-<!DOCTYPE html><html><head><title>Koa - next generation web framework for node.js</title><link rel="stylesheet" href="public/style.css"><link rel="stylesheet" href="public/icons/css/slate.css"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Italiana&amp;subset=latin"><meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"><script>window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
-window.analytics.load("9u0xff0b3k");
-window.analytics.page();</script><script src="stats.js"></script></head><body><section id="top"><div id="menu"><a id="toggle" href="index.html#"><i class="icon-menu"></i></a><ul><li><a href="index.html#introduction">Introduction</a></li><li><a href="index.html#application">Application</a></li><li><a href="index.html#context">Context</a></li><li><a href="index.html#request">Request</a></li><li><a href="index.html#response">Response</a></li><li><a href="index.html#links">Links</a></li></ul></div><div id="heading"><div id="logo">Koa</div><div id="tagline">next generation web framework for node.js</div></div></section><section><div class="content"><h1 id="introduction">Introduction</h1><p>Koa is a new web framework designed by the team behind Express,
+<!DOCTYPE html><html><head><title>Koa - next generation web framework for node.js</title>
+
+
+<style>
+
+* {
+  -webkit-box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font: 17px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  background: white;
+  margin: 0;
+  color: #33333d;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+a {
+  color: #33a0c0;
+}
+
+section {
+  min-height: 50%;
+}
+
+section:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+section:not(#top) {
+  padding: 150px 100px;
+  text-align: center;
+}
+
+pre {
+  background: white;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 25px;
+  font-size: .9em;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+.content img {
+  width: 100%;
+}
+
+p {
+  font-weight: 300;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+code {
+  font-family: monospace;
+  font-size: .9em;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2em;
+}
+
+h1:not(:first-child) {
+  margin-top: 50px;
+}
+
+h2 {
+  margin-top: 80px;
+  font-size: 1.2em;
+}
+
+h3 {
+  margin-top: 40px;
+  font-size: 1em;
+}
+
+ul li {
+  font-size: .8em;
+}
+
+section:nth-child(2n) {
+  background: #fdfdfd;
+  box-shadow: inset 0 1px 0 0 white;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 750px;
+  text-align: left;
+}
+
+#top {
+  height: 100%;
+}
+
+#heading {
+  -webkit-user-select: none;
+  position: absolute;
+  top: 50%;
+  margin-top: -150px;
+  text-align: center;
+  width: 100%;
+}
+
+#logo {
+  font: 150px 'Italiana', sans-serif;
+  text-transform: lowercase;
+}
+
+#tagline {
+  font-size: 16px;
+}
+
+#menu {
+  position: fixed;
+  top: 35px;
+  right: 30px;
+  z-index: 50;
+}
+
+#menu:hover ul {
+  display: block;
+}
+
+#menu a {
+  color: inherit;
+}
+
+#menu a#toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background: rgba(255,255,255,.9);
+  border-radius: 2px;
+  border: 1px solid transparent;
+  z-index: 5;
+}
+
+#menu:hover a#toggle {
+  border: 1px solid #efefef;
+  border-bottom: none;
+}
+
+#menu ul {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  margin: 0;
+  border: 1px solid #efefef;
+  border-bottom: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 25px;
+  background: rgba(255,255,255,.95);
+  box-shadow: 0 1px 3px 0 #eee;
+}
+
+#menu ul li {
+  list-style: none;
+}
+
+#menu ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 3px 0;
+}
+
+#menu ul li a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 700px) {
+  section:not(#top) {
+    padding: 50px 25px;
+  }
+
+  #heading {
+    margin-top: -75px;
+  }
+
+  #logo {
+    font-size: 75px;
+  }
+
+  #tagline {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "slate";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-cancel:before { content: '\e803'; } /* '' */
+.icon-menu-1:before { content: '\e811'; } /* '' */
+.icon-plus:before { content: '\e804'; } /* '' */
+.icon-plus-circled:before { content: '\e805'; } /* '' */
+.icon-minus:before { content: '\e800'; } /* '' */
+.icon-minus-circled:before { content: '\e806'; } /* '' */
+.icon-attention-alt:before { content: '\e809'; } /* '' */
+.icon-attention:before { content: '\e808'; } /* '' */
+.icon-attention-circled:before { content: '\e80a'; } /* '' */
+.icon-cancel-circled:before { content: '\e802'; } /* '' */
+.icon-cog:before { content: '\e807'; } /* '' */
+.icon-resize-full:before { content: '\e810'; } /* '' */
+.icon-signal:before { content: '\e80b'; } /* '' */
+.icon-smile:before { content: '\e80c'; } /* '' */
+.icon-frown:before { content: '\e80d'; } /* '' */
+.icon-meh:before { content: '\e80e'; } /* '' */
+.icon-github:before { content: '\e80f'; } /* '' */
+.icon-menu:before { content: '\e801'; } /* '' */
+</style>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"></head><body><section id="top"><div id="menu"><a id="toggle" href="index.html#"><i class="icon-menu"></i></a><ul><li><a href="index.html#introduction">Introduction</a></li><li><a href="index.html#application">Application</a></li><li><a href="index.html#context">Context</a></li><li><a href="index.html#request">Request</a></li><li><a href="index.html#response">Response</a></li><li><a href="index.html#links">Links</a></li></ul></div><div id="heading"><div id="logo">Koa</div><div id="tagline">next generation web framework for node.js</div></div></section><section><div class="content"><h1 id="introduction">Introduction</h1><p>Koa is a new web framework designed by the team behind Express,
 which aims to be a smaller, more expressive, and more robust foundation
 for web applications and APIs. Through leveraging generators Koa allows you
 to ditch callbacks and greatly increase error-handling. Koa does not bundle any
