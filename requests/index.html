@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Requests: HTTP for Humans &mdash; Requests 1.1.0 文档</title>
+    
+    <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Requests 1.1.0 文档" href="index.html#" />
+    <link rel="next" title="简介" href="user/intro.html" />
+
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+<!-- RTD Extra Head -->
+
+    
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="index.html" />
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "requests-docs-cn",
+    version: "latest",
+    language: "zh_CN",
+    page: "index",
+    builder: "sphinx",
+    theme: "kr",
+    docroot: "/docs/",
+    
+    source_suffix: ".rst",
+    
+    api_host: "https://readthedocs.org/",
+    commit: "4c7cc858"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "requests-docs-cn";
+  var page_name = "index";
+  var html_theme = "kr";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="user/intro.html" title="简介"
+             accesskey="N">下一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html#">Requests 1.1.0 文档</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="requests-http-for-humans">
+<h1>Requests: HTTP for Humans<a class="headerlink" href="index.html#requests-http-for-humans" title="永久链接至标题">¶</a></h1>
+<p>发行版本 v1.1.0. (<a class="reference internal" href="user/install.html#install"><span>安装</span></a>)</p>
+<p>Requests 是使用 <a class="reference internal" href="user/intro.html#apache2"><span>Apache2 Licensed</span></a> 许可证的 HTTP 库。用 Python 编写，真正的为人类着想。</p>
+<p>Python 标准库中的 <strong>urllib2</strong> 模块提供了你所需要的大多数 HTTP 功能，但是它的 API 太渣了。它是为另一个时代、另一个互联网所创建的。它需要巨量的工作，甚至包括各种方法覆盖，来完成最简单的任务。</p>
+<p>在Python的世界里，事情不应该这么麻烦。</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+<span class="go">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;content-type&#39;</span><span class="p">]</span>
+<span class="go">&#39;application/json; charset=utf8&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">encoding</span>
+<span class="go">&#39;utf-8&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">text</span>
+<span class="go">u&#39;{&quot;type&quot;:&quot;User&quot;...&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="go">{u&#39;private_gists&#39;: 419, u&#39;total_private_repos&#39;: 77, ...}</span>
+</pre></div>
+</div>
+<p>参见 <a class="reference external" href="https://gist.github.com/973705">未使用 Requests 的相似代码</a>.</p>
+<p>Requests 使用的是 urllib3，因此继承了它的所有特性。Requests 支持 HTTP 连接保持和连接池，支持使用 cookie 保持会话，支持文件上传，支持自动确定响应内容的编码，支持国际化的 URL 和 POST 数据自动编码。现代、国际化、人性化。</p>
+<div class="section" id="testimonials">
+<h2>Testimonials<a class="headerlink" href="index.html#testimonials" title="永久链接至标题">¶</a></h2>
+<p>Her Majesty&#8217;s Government, Amazon, Google, Twilio, Mozilla, Heroku, PayPal, NPR, Obama for America, Transifex, Native Instruments, The Washington Post, Twitter, SoundCloud, Kippt, Readability, and Federal US Institutions use Requests internally. It has been downloaded over 2,000,000 times from PyPI.</p>
+<dl class="docutils">
+<dt><strong>Armin Ronacher</strong></dt>
+<dd>Requests is the perfect example how beautiful an API can be with the
+right level of abstraction.</dd>
+<dt><strong>Matt DeBoard</strong></dt>
+<dd>I&#8217;m going to get &#64;kennethreitz&#8217;s Python requests module tattooed
+on my body, somehow. The whole thing.</dd>
+<dt><strong>Daniel Greenfeld</strong></dt>
+<dd>Nuked a 1200 LOC spaghetti code library with 10 lines of code thanks to
+&#64;kennethreitz&#8217;s request library. Today has been AWESOME.</dd>
+<dt><strong>Kenny Meyers</strong></dt>
+<dd>Python HTTP: When in doubt, or when not in doubt, use Requests. Beautiful,
+simple, Pythonic.</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>功能特性<a class="headerlink" href="index.html#id1" title="永久链接至标题">¶</a></h2>
+<p>Requests 完全满足如今网络的需求。</p>
+<ul class="simple">
+<li>国际化域名和 URLs</li>
+<li>Keep-Alive &amp; 连接池</li>
+<li>持久的 Cookie 会话</li>
+<li>类浏览器式的 SSL 加密认证</li>
+<li>基本/摘要式的身份认证</li>
+<li>优雅的键/值 Cookies</li>
+<li>自动解压</li>
+<li>Unicode 编码的响应体</li>
+<li>多段文件上传</li>
+<li>连接超时</li>
+<li>支持 <code class="docutils literal"><span class="pre">.netrc</span></code></li>
+<li>适用于 Python 2.6—3.4</li>
+<li>线程安全</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>用户指南<a class="headerlink" href="index.html#id2" title="永久链接至标题">¶</a></h2>
+<p>这部分文档主要介绍了 Requests 的背景，然后对于 Requests 的应用做了一步一步的要点介绍。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user/intro.html">简介</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/intro.html#id2">开发哲学</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/intro.html#apache2">Apache2 协议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/intro.html#requests">Requests 协议</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user/install.html">安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/install.html#distribute-pip">Distribute &amp; Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/install.html#id3">获得源码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user/quickstart.html">快速上手</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id2">发送请求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#url">为URL传递参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id3">响应内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id4">二进制响应内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#json">JSON响应内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id5">原始响应内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id6">定制请求头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#post">更加复杂的POST请求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#post-multipart-encoded">POST一个多部分编码(Multipart-Encoded)的文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id7">响应状态码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id8">响应头</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#cookies">Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id9">重定向与请求历史</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id10">超时</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/quickstart.html#id11">错误与异常</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user/advanced.html">高级用法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id2">会话对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id3">请求与响应对象</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#prepared-requests">Prepared Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#ssl">SSL证书验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id4">响应体内容工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id5">保持活动状态（持久连接）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id6">流式上传</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id7">块编码请求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#post-multiple-multipart-encoded-files">POST Multiple Multipart-Encoded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id8">事件挂钩</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id9">自定义身份验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#streaming-requests">流式请求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id11">代理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id12">合规性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#http">HTTP动词</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#id14">响应头链接字段</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#transport-adapters">Transport Adapters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#blocking-or-non-blocking">Blocking Or Non-Blocking?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#timeouts">Timeouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/advanced.html#ca-certificates">CA Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user/authentication.html">身份认证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user/authentication.html#id2">基本身份认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/authentication.html#id3">摘要式身份认证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/authentication.html#oauth-1-authentication">OAuth 1 Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/authentication.html#id4">其他身份认证形式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user/authentication.html#id5">新的身份认证形式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>社区指南<a class="headerlink" href="index.html#id3" title="永久链接至标题">¶</a></h2>
+<p>这部分文档主要详细地介绍了Requests的社区支持情况</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="community/faq.html">常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community/out-there.html">整合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community/out-there.html#articles-talks">Articles &amp; Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community/support.html">支持</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community/updates.html">更新</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API 文档<a class="headerlink" href="index.html#api" title="永久链接至标题">¶</a></h2>
+<p>如果你正在寻找一个特殊函数，类或者方法的话，这部分文档刚好满足你。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">开发者接口</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id2">主要接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#id6">请求会话</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#x">迁移到 1.x</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>贡献者指南<a class="headerlink" href="index.html#id4" title="永久链接至标题">¶</a></h2>
+<p>如果你对这个项目有兴趣，想做一点贡献，请参考下面文档</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev/philosophy.html">开发理念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/todo.html">如何帮助</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev/authors.html">贡献者</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="logo">
+  <a href="index.html#">
+    <img class="logo" src="_static/requests-sidebar.png" alt="Logo"/>
+  </a>
+</p>
+
+<p>
+  <iframe src="http://ghbtns.com/github-btn.html?user=kennethreitz&repo=requests&type=watch&count=true&size=large"
+    allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+<p>
+  Requests is an elegant and simple HTTP library for Python, built for
+  human beings. You are currently looking at the documentation of the
+  development release.
+</p>
+
+
+<h3>Donate</h3>
+<p>
+    If you love Requests, consider supporting the author <a href="https://www.gittip.com/kennethreitz/">on Gittip</a>:
+</p>
+<p>
+  <iframe style="border: 0; margin: 0; padding: 0;"
+      src="https://www.gittip.com/kennethreitz/widget.html"
+      width="48pt" height="20pt"></iframe>
+</p>
+
+<p>
+    If your organization uses Requests, consider financial support:
+
+</p>
+<p>
+  <a href="http://gum.co/RRZc" class="gumroad-button">Requests Pro</a><script type="text/javascript" src="https://gumroad.com/js/gumroad-button.js"></script>
+</p>
+
+<h3>Feedback</h3>
+<p>
+  Feedback is greatly appreciated. If you have any questions, comments,
+  random praise, or anonymous threats, <a href="mailto:me@kennethreitz.com">
+  shoot me an email</a>.
+</p>
+
+
+<h3>Useful Links</h3>
+<ul>
+  <li><a href="http://pypi.python.org/pypi/requests">Requests @ PyPI</a></li>
+  <li><a href="http://github.com/kennethreitz/requests">Requests @ GitHub</a></li>
+  <li><a href="https://flattr.com/thing/442264/Requests">Requests @ Flattr</a></li>
+  <li><a href="http://github.com/kennethreitz/requests/issues">Issue Tracker</a></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="http://docs.python-requests.org/zh_CN/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    输入相关的术语，模块，类或者函数名称进行搜索
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2013. A <a href="http://kennethreitz.com/pages/open-projects.html">Kenneth Reitz</a> Project.
+    </div>
+    <a href="https://github.com/kennethreitz/requests" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */
+    </script>
+        <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/7219.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+
+    <script type="text/javascript">
+        new HelloBar(36402,48802);
+    </script>
+
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-8742933-11']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <script type="text/javascript">
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id',
+                       '4ddc27f6613f5d186d000007');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>

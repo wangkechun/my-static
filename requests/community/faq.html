@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>常见问题 &mdash; Requests 1.1.0 文档</title>
+    
+    <link rel="stylesheet" href="../_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Requests 1.1.0 文档" href="../index.html" />
+    <link rel="next" title="整合" href="out-there.html" />
+    <link rel="prev" title="身份认证" href="../user/authentication.html" />
+
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+<!-- RTD Extra Head -->
+
+    
+    
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="faq.html" />
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "requests-docs-cn",
+    version: "latest",
+    language: "zh_CN",
+    page: "community/faq",
+    builder: "sphinx",
+    theme: "kr",
+    docroot: "/docs/",
+    
+    source_suffix: ".rst",
+    
+    api_host: "https://readthedocs.org/",
+    commit: "4c7cc858"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "requests-docs-cn";
+  var page_name = "community/faq";
+  var html_theme = "kr";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="out-there.html" title="整合"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="../user/authentication.html" title="身份认证"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Requests 1.1.0 文档</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="faq">
+<span id="id1"></span><h1>常见问题<a class="headerlink" href="faq.html#faq" title="永久链接至标题">¶</a></h1>
+<p>这部分的文档回答了有关requests的常见问题。</p>
+<div class="section" id="id2">
+<h2>已编码的数据?<a class="headerlink" href="faq.html#id2" title="永久链接至标题">¶</a></h2>
+<p>Requests 自动解压缩的gzip编码的响应体，并在可能的情况下尽可能的将响应内容解码为unicode.</p>
+<p>如果需要的话，你可以直接访问原始响应内容（甚至是套接字）。</p>
+</div>
+<div class="section" id="user-agents">
+<h2>自定义 User-Agents?<a class="headerlink" href="faq.html#user-agents" title="永久链接至标题">¶</a></h2>
+<p>Requests 允许你使用其它的HTTP Header来轻松的覆盖自带的User-Agent字符串。</p>
+</div>
+<div class="section" id="httplib2">
+<h2>怎么不是Httplib2?<a class="headerlink" href="faq.html#httplib2" title="永久链接至标题">¶</a></h2>
+<p>Chris Adams 给出来一个很好的总结
+<a class="reference external" href="http://news.ycombinator.com/item?id=2884406">Hacker News</a>:</p>
+<blockquote>
+<div><p>httplib2 is part of why you should use requests: it&#8217;s far more respectable
+as a client but not as well documented and it still takes way too much code
+for basic operations. I appreciate what httplib2 is trying to do, that
+there&#8217;s a ton of hard low-level annoyances in building a modern HTTP
+client, but really, just use requests instead. Kenneth Reitz is very
+motivated and he gets the degree to which simple things should be simple
+whereas httplib2 feels more like an academic exercise than something
+people should use to build production systems[1].</p>
+<p>Disclosure: I&#8217;m listed in the requests AUTHORS file but can claim credit
+for, oh, about 0.0001% of the awesomeness.</p>
+<p>1. <a class="reference external" href="http://code.google.com/p/httplib2/issues/detail?id=96">http://code.google.com/p/httplib2/issues/detail?id=96</a> is a good example:
+an annoying bug which affect many people, there was a fix available for
+months, which worked great when I applied it in a fork and pounded a couple
+TB of data through it, but it took over a year to make it into trunk and
+even longer to make it onto PyPI where any other project which required &#8221;
+httplib2&#8221; would get the working version.</p>
+</div></blockquote>
+</div>
+<div class="section" id="python-3">
+<h2>支持 Python 3 吗?<a class="headerlink" href="faq.html#python-3" title="永久链接至标题">¶</a></h2>
+<p>恭喜！回答是肯定的。下面是官方支持的python平台列表:</p>
+<ul class="simple">
+<li>Python 2.6</li>
+<li>Python 2.7</li>
+<li>Python 3.1</li>
+<li>Python 3.2</li>
+<li>Python 3.3</li>
+<li>PyPy 1.9</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/requests-sidebar.png" alt="Logo"/>
+  </a>
+</p>
+<p>
+<iframe src="http://ghbtns.com/github-btn.html?user=kennethreitz&repo=requests&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+<p>
+  Requests is an elegant and simple HTTP library for Python, built for
+  human beings. You are currently looking at the documentation of the
+  development release.
+</p>
+
+<h3>Donate</h3>
+<p>
+    If you love Requests, consider supporting the author <a href="https://www.gittip.com/kennethreitz/">on Gittip</a>:
+</p>
+<p>
+  <iframe style="border: 0; margin: 0; padding: 0;"
+      src="https://www.gittip.com/kennethreitz/widget.html"
+      width="48pt" height="20pt"></iframe>
+</p>
+
+<p>
+    If your organization uses Requests, consider financial support:
+
+</p>
+
+<p>
+  <a href="http://gum.co/RRZc" class="gumroad-button">Requests Pro</a><script type="text/javascript" src="https://gumroad.com/js/gumroad-button.js"></script>
+</p>
+  <h3><a href="../index.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="faq.html#">常见问题</a><ul>
+<li><a class="reference internal" href="faq.html#id2">已编码的数据?</a></li>
+<li><a class="reference internal" href="faq.html#user-agents">自定义 User-Agents?</a></li>
+<li><a class="reference internal" href="faq.html#httplib2">怎么不是Httplib2?</a></li>
+<li><a class="reference internal" href="faq.html#python-3">支持 Python 3 吗?</a></li>
+</ul>
+</li>
+</ul>
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../user/authentication.html" title="上一章">身份认证</a></li>
+      <li>Next: <a href="out-there.html" title="下一章">整合</a></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="http://docs.python-requests.org/zh_CN/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    输入相关的术语，模块，类或者函数名称进行搜索
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2013. A <a href="http://kennethreitz.com/pages/open-projects.html">Kenneth Reitz</a> Project.
+    </div>
+    <a href="https://github.com/kennethreitz/requests" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */
+    </script>
+        <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/7219.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+
+    <script type="text/javascript">
+        new HelloBar(36402,48802);
+    </script>
+
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-8742933-11']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <script type="text/javascript">
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id',
+                       '4ddc27f6613f5d186d000007');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>

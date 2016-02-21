@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>身份认证 &mdash; Requests 1.1.0 文档</title>
+    
+    <link rel="stylesheet" href="../_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Requests 1.1.0 文档" href="../index.html" />
+    <link rel="next" title="常见问题" href="../community/faq.html" />
+    <link rel="prev" title="高级用法" href="advanced.html" />
+
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+<!-- RTD Extra Head -->
+
+    
+    
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="authentication.html" />
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "requests-docs-cn",
+    version: "latest",
+    language: "zh_CN",
+    page: "user/authentication",
+    builder: "sphinx",
+    theme: "kr",
+    docroot: "/docs/",
+    
+    source_suffix: ".rst",
+    
+    api_host: "https://readthedocs.org/",
+    commit: "4c7cc858"
+  }
+  // Old variables
+  var doc_version = "latest";
+  var doc_slug = "requests-docs-cn";
+  var page_name = "user/authentication";
+  var html_theme = "kr";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="../community/faq.html" title="常见问题"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="advanced.html" title="高级用法"
+             accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Requests 1.1.0 文档</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="authentication">
+<span id="id1"></span><h1>身份认证<a class="headerlink" href="authentication.html#authentication" title="永久链接至标题">¶</a></h1>
+<p>本篇文档讨论如何配合Requests使用多种身份认证方式。</p>
+<p>许多web服务都需要身份认证，并且也有多种不同的认证类型。
+以下，我们会从简单到复杂概述Requests中可用的几种身份认证形式。</p>
+<div class="section" id="id2">
+<h2>基本身份认证<a class="headerlink" href="authentication.html#id2" title="永久链接至标题">¶</a></h2>
+<p>许多要求身份认证的web服务都接受HTTP Basic Auth。这是最简单的一种身份认证，并且Requests
+对这种认证方式的支持是直接开箱即可用。</p>
+<p>以HTTP Basic Auth发送请求非常简单:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
+<span class="go">&lt;Response [200]&gt;</span>
+</pre></div>
+</div>
+<p>事实上，HTTP Basic Auth如此常见，Requests就提供了一种简写的使用方式:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
+<span class="go">&lt;Response [200]&gt;</span>
+</pre></div>
+</div>
+<p>像这样在一个元组中提供认证信息与前一个 <code class="docutils literal"><span class="pre">HTTPBasicAuth</span></code> 例子是完全相同的。</p>
+<div class="section" id="netrc-authentication">
+<h3>netrc Authentication<a class="headerlink" href="authentication.html#netrc-authentication" title="永久链接至标题">¶</a></h3>
+<p>If no authentication method is given with the <code class="docutils literal"><span class="pre">auth</span></code> argument, Requests will
+attempt to get the authentication credentials for the URL&#8217;s hostname from the
+user&#8217;s netrc file.</p>
+<p>If credentials for the hostname are found, the request is sent with HTTP Basic
+Auth.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>摘要式身份认证<a class="headerlink" href="authentication.html#id3" title="永久链接至标题">¶</a></h2>
+<p>另一种非常流行的HTTP身份认证形式是摘要式身份认证，Requests对它的支持也是开箱即可用的:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPDigestAuth</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://httpbin.org/digest-auth/auth/user/pass&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPDigestAuth</span><span class="p">(</span><span class="s">&#39;user&#39;</span><span class="p">,</span> <span class="s">&#39;pass&#39;</span><span class="p">))</span>
+<span class="go">&lt;Response [200]&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oauth-1-authentication">
+<h2>OAuth 1 Authentication<a class="headerlink" href="authentication.html#oauth-1-authentication" title="永久链接至标题">¶</a></h2>
+<p>A common form of authentication for several web APIs is OAuth. The <code class="docutils literal"><span class="pre">requests-oauthlib</span></code>
+library allows Requests users to easily make OAuth authenticated requests:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;https://api.twitter.com/1.1/account/verify_credentials.json&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span><span class="s">&#39;YOUR_APP_KEY&#39;</span><span class="p">,</span> <span class="s">&#39;YOUR_APP_SECRET&#39;</span><span class="p">,</span>
+<span class="go">                  &#39;USER_OAUTH_TOKEN&#39;, &#39;USER_OAUTH_TOKEN_SECRET&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="go">&lt;Response [200]&gt;</span>
+</pre></div>
+</div>
+<p>For more information on how to OAuth flow works, please see the official <a class="reference external" href="http://oauth.net/">OAuth</a> website.
+For examples and documentation on requests-oauthlib, please see the <a class="reference external" href="https://github.com/requests/requests-oauthlib">requests_oauthlib</a>
+repository on GitHub</p>
+</div>
+<div class="section" id="id4">
+<h2>其他身份认证形式<a class="headerlink" href="authentication.html#id4" title="永久链接至标题">¶</a></h2>
+<p>Requests被设计成允许其他形式的身份认证非常容易快速地插入其中。开源社区的成员
+时常为更复杂或不那么常用的身份认证形式编写认证处理插件。其中一些最优秀的已被
+收集在 <a class="reference external" href="https://github.com/requests">Requests organization</a> 页面中，包括:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/requests/requests-kerberos">Kerberos</a></li>
+<li><a class="reference external" href="https://github.com/requests/requests-ntlm">NTLM</a></li>
+</ul>
+<p>如果你想使用其中任何一种身份认证形式，直接去它们的GitHub页面，依照说明进行。</p>
+</div>
+<div class="section" id="id5">
+<h2>新的身份认证形式<a class="headerlink" href="authentication.html#id5" title="永久链接至标题">¶</a></h2>
+<p>如果你找不到所需要的身份认证形式的一个良好实现，你也可以自己实现它。Requests非常易于添加你自己的身份认证形式。</p>
+<p>要想自己实现，就从 <code class="xref py py-class docutils literal"><span class="pre">requests.auth.AuthBase</span></code> 继承一个子类，并实现 <code class="docutils literal"><span class="pre">__call__()</span></code> 方法:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyAuth</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">AuthBase</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="c"># Implement my authentication</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">r</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span> <span class="o">=</span> <span class="s">&#39;http://httpbin.org/get&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">MyAuth</span><span class="p">())</span>
+<span class="go">&lt;Response [200]&gt;</span>
+</pre></div>
+</div>
+<p>当一个身份认证模块被附加到一个请求上，在设置request期间就会调用该模块。因此 <code class="docutils literal"><span class="pre">__call__</span></code> 方法必须完成使得身份认证生效的所有事情。一些身份认证形式会额外地添加钩子来提供进一步的功能。</p>
+<p>可以在 <a class="reference external" href="https://github.com/requests">Requests organization</a> 页面的 <code class="docutils literal"><span class="pre">auth.py</span></code> 文件中找到示例。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/requests-sidebar.png" alt="Logo"/>
+  </a>
+</p>
+<p>
+<iframe src="http://ghbtns.com/github-btn.html?user=kennethreitz&repo=requests&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+<p>
+  Requests is an elegant and simple HTTP library for Python, built for
+  human beings. You are currently looking at the documentation of the
+  development release.
+</p>
+
+<h3>Donate</h3>
+<p>
+    If you love Requests, consider supporting the author <a href="https://www.gittip.com/kennethreitz/">on Gittip</a>:
+</p>
+<p>
+  <iframe style="border: 0; margin: 0; padding: 0;"
+      src="https://www.gittip.com/kennethreitz/widget.html"
+      width="48pt" height="20pt"></iframe>
+</p>
+
+<p>
+    If your organization uses Requests, consider financial support:
+
+</p>
+
+<p>
+  <a href="http://gum.co/RRZc" class="gumroad-button">Requests Pro</a><script type="text/javascript" src="https://gumroad.com/js/gumroad-button.js"></script>
+</p>
+  <h3><a href="../index.html">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="authentication.html#">身份认证</a><ul>
+<li><a class="reference internal" href="authentication.html#id2">基本身份认证</a><ul>
+<li><a class="reference internal" href="authentication.html#netrc-authentication">netrc Authentication</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="authentication.html#id3">摘要式身份认证</a></li>
+<li><a class="reference internal" href="authentication.html#oauth-1-authentication">OAuth 1 Authentication</a></li>
+<li><a class="reference internal" href="authentication.html#id4">其他身份认证形式</a></li>
+<li><a class="reference internal" href="authentication.html#id5">新的身份认证形式</a></li>
+</ul>
+</li>
+</ul>
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="advanced.html" title="上一章">高级用法</a></li>
+      <li>Next: <a href="../community/faq.html" title="下一章">常见问题</a></li>
+  </ul></li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="http://docs.python-requests.org/zh_CN/latest/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    输入相关的术语，模块，类或者函数名称进行搜索
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2013. A <a href="http://kennethreitz.com/pages/open-projects.html">Kenneth Reitz</a> Project.
+    </div>
+    <a href="https://github.com/kennethreitz/requests" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */
+    </script>
+        <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/7219.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+
+    <script type="text/javascript">
+        new HelloBar(36402,48802);
+    </script>
+
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-8742933-11']);
+      _gaq.push(['_setDomainName', 'none']);
+      _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+    <script type="text/javascript">
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id',
+                       '4ddc27f6613f5d186d000007');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
