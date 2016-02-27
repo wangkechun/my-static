@@ -13,4 +13,4 @@ deploy:
 push:
 	git push origin
 
-.PHONY: chlblog deploy push
+.PHONY: chlblog deploy push chlresume snake
