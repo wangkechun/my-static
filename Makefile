@@ -6,7 +6,7 @@ chlresume:
 	cp -Rf  ../chlResume/ chlresume
 
 snake:
-	cp -Rf  ../old/summer/snake/ snake
+	cp -Rf  ../Snake_React/ snake
 
 logbook:
 	rm -rf logbook/*

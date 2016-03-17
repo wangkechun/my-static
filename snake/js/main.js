@@ -348,8 +348,6 @@ const SnakeReact = React.createClass({
         de = 2;
       } else if (dir == 3 && de != 2) {
         de = 3;
-      } else if (code == 32) {
-        de = 4;
       } else {
         de = this.state.de;
       }
@@ -366,6 +364,7 @@ const SnakeReact = React.createClass({
 
   reStartTrue() {
     this.setState(this.getInitialState());
+    this.refs.body.focus();
     time = setInterval(this.goNext, this.state.speed);
   },
 
@@ -408,9 +407,11 @@ const SnakeReact = React.createClass({
           <div className="game_over" style={cssDisplay(this.state.gameOver)}>Game Over !</div>
           <button style={cssDisplay(this.state.gameOver)} onClick={()=> {this.setState(this.getInitialState());}}>重置</button>
           <div className="reStart" style={cssDisplay(this.state.reStart)}>
-            <div>真的要放弃我吗？</div>
-            <button onClick={this.reStartTrue}>确定</button>
-            <button onClick={this.reStartFalse}>取消</button>
+            <span className="con">真的要放弃我吗？</span>
+            <div className="ReButton">
+              <button onClick={this.reStartTrue}>确定</button>
+              <button onClick={this.reStartFalse}>取消</button>
+            </div>
           </div>
           <footer>
             <button onClick={this.setDif.bind(null, 1)}>简单</button>
