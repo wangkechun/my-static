@@ -2,7 +2,8 @@ chlblog:
 	cp -Rf  ../old/summer/blog/ chlblog
 
 chlresume:
-	cp -Rf  ../old/summer/resume/ chlresume
+	rm -rf chlresume
+	cp -Rf  ../chlResume/ chlresume
 
 snake:
 	cp -Rf  ../old/summer/snake/ snake
