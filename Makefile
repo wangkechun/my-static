@@ -1,6 +1,10 @@
 chlblog:
 	cp -Rf  ../HomePage/ chlblog
 
+chlblogv2:
+	cp -Rf  ../Blog/ chlblogv2
+	trash chlblogv2/.git
+
 chlresume:
 	rm -rf chlresume
 	cp -Rf  ../chlResume/ chlresume
@@ -19,4 +23,4 @@ deploy:
 push:
 	git push origin
 
-.PHONY: chlblog deploy push chlresume snake logbook
+.PHONY: chlblog deploy push chlresume snake logbook chlblogv2
