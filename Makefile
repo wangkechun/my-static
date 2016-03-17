@@ -1,5 +1,5 @@
 chlblog:
-	cp -Rf  ../old/summer/blog/ chlblog
+	cp -Rf  ../HomePage/ chlblog
 
 chlresume:
 	rm -rf chlresume
