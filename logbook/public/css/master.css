@@ -222,15 +222,11 @@ body {
   width: 100%;
   height: 800px;
   z-index: 1;
+  display: flex;
 }
 .leftArea {
   border-right: 1px solid #ccc;
-  width: 19%;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  float: left;
-  display: inline;
+  width: 235px;
 }
 .leftArea .date {
   margin-top: 20px;
@@ -269,9 +265,7 @@ body {
 }
 .rightArea {
   margin-top: 50px;
-  width: 79%;
-  float: right;
-  display: inline;
+  flex: 1;
 }
 .rightArea .departments div > li {
   display: block;
@@ -324,6 +318,9 @@ body {
   font-size: 17px;
   margin: 15px 20px;
   color: #555;
+}
+.rightArea .departments div .gs .mood img {
+  height: 30px;
 }
 .rightArea .departments div .gs .note {
   font-weight: bold;

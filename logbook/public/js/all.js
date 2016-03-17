@@ -443,8 +443,9 @@ const User = React.createClass({displayName: "User",
                     React.createElement("div", {className: "notess"}, 
                         React.createElement("div", {className: "mo"}, "心情：", React.createElement("img", {src: mood_img_src(note.mood), alt: ""})), 
                         React.createElement("div", {className: "rizhi"}, "日志：", 
-                            React.createElement("div", {className: "con"}, React.createElement("span", {
-                                dangerouslySetInnerHTML: {__html:marked(note.content)}}))
+                            React.createElement("div", {className: "con"}, 
+                                React.createElement("span", {dangerouslySetInnerHTML: {__html:marked(note.content||'')}})
+                            )
                         ), 
                         React.createElement("div", {className: "comment"}, 
                             React.createElement("a", {onClick: this.viewAllComment.bind(null,id)}, "查看所有评论"), 
