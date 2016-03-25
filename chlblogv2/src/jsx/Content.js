@@ -5,8 +5,8 @@ const Content = React.createClass({
     render(){
         return (
           <div className="main">
-              <div className="content" style={changeMarginTop(this.props.wheel)}>
-                  <LeftArea />
+              <div className="content" >
+                  <LeftArea wheel={this.props.wheel}/>
                   <RightArea tag={this.props.params.tag} article={this.props.params.article}/>
               </div>
           </div>
