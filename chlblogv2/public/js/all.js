@@ -414,6 +414,61 @@ const Article3 = `
 
 `;
 
+const Article4 = `
+这两天遇到了很多居中方面的问题，趁此机会在这里做个总结。
+
+### 容器的居中
+#### 一个容器的水平居中
+\`\`\`
+#contain{
+    margin: 0 auto;
+}
+\`\`\`
+这个方法需要注意的几点：
+
+ 1. 容器一定要有固定的宽度，不然div的宽度默认的宽度是100%，不会有效果的。
+ 2. 第一个参数 要根据实际情况去写，它实际的含义就是上下的margin值。
+
+#### 一个容器的水平垂直居中
+##### 绝对定位
+\`\`\`
+#contain{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+\`\`\`
+这个方法肯定是用于在一个已知大小的父容器中,父容器记得要设置position:relative。
+##### 弹性布局
+\`\`\`
+#father{
+    display:flex;
+    justify-content:center;//子元素水平居中
+    align-items:center;//子元素垂直居中
+}
+\`\`\`
+弹性布局的学习推荐大家通过 http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html 学习
+可以实现所有子元素水平垂直等布局。
+
+### 文本元素的居中
+#### 文本元素的水平居中
+\`\`\`
+#text{
+    text-align:center;
+}
+\`\`\`
+这个应该大家都会，不需要解释了。
+#### 文本元素的垂直居中
+\`\`\`
+#text{
+    Sheight：30px;
+    line-height:30px;
+}
+\`\`\`
+当line-height的属性值和height的属性值相等时，文字就自动垂直居中了。
+
+`
 
 const ARTICLE = [
     {
@@ -437,10 +492,69 @@ const ARTICLE = [
         title: " 随笔  ----前端路的酸甜苦辣",
         tag:"随笔",
         date:"2016-03-25",
-        description:"",
+        description:"学习中的一点小感受和大家一起分享",
         content:Article3
+    },
+    {
+        id:4,
+        title: "让人欢喜让人忧的CSS居中问题",
+        tag:"HTML&CSS",
+        date:"2016-03-26",
+        description:"CSS布局中的居中问题",
+        content:Article4
     }
 ];
+const ArticleMain = React.createClass({displayName: "ArticleMain",
+    componentWillMount(){
+        document.body.scrollTop=170;
+    },
+   render(){
+       let article = ARTICLE[this.props.article - 1];
+       let articleHTML = (
+         React.createElement("div", {className: "inside"}, 
+             React.createElement("h2", {className: "title"}, article.title), 
+             React.createElement("div", {className: "icon"}, React.createElement("i", {className: "fa fa-tag "}), React.createElement("span", {className: "tag"}, article.tag), 
+                 React.createElement("i", {className: "fa fa-calendar "}), React.createElement("span", {className: "date"}, article.date)), 
+             React.createElement("div", {className: "description", dangerouslySetInnerHTML: {__html:marked(article.content)}})
+         )
+       );
+       return(
+         React.createElement("div", {className: "article"}, 
+             articleHTML
+         )
+       );
+   }
+});
+const Tag = React.createClass({displayName: "Tag",
+   render(){
+       const articleList = ARTICLE;
+       const tag = this.props.tag;
+       let TagHTML = articleList.filter(v=> {
+           if (tag === 'ALL') return true;
+           return v.tag == tag
+       }).map((article)=> {
+           return (React.createElement("li", {key: article.id}, 
+               React.createElement("div", {className: "inside"}, 
+                   React.createElement("h2", {className: "title"}, React.createElement(Link, {to: "/article/" + article.id}, article.title)), 
+                   React.createElement("div", {className: "icon"}, 
+                       React.createElement("i", {className: "fa fa-tag "}), React.createElement("span", {className: "tag"}, article.tag), 
+                       React.createElement("i", {className: "fa fa-calendar "}), React.createElement("span", {className: "date"}, article.date)
+                   ), 
+                   React.createElement("div", {className: "description"}, article.description), 
+                   React.createElement("div", {className: "more"}, React.createElement(Link, {to: "/article/" + article.id}, React.createElement("span", null, "Read More"))
+                   )
+               )
+           ));
+       });
+       return(
+         React.createElement("div", {className: "nav"}, 
+             React.createElement("ul", null, 
+                 TagHTML
+             )
+         )
+       );
+   }
+});
 const Route = ReactRouter.Route;
 const Router = ReactRouter.Router;
 const Redirect = ReactRouter.Redirect;
@@ -539,52 +653,18 @@ const RightArea = React.createClass({displayName: "RightArea",
     render(){
         const articleList = ARTICLE;
         const tag = this.props.tag;
-        let TagHTML = articleList.filter(v=> {
-            if (tag === 'ALL') return true;
-            return v.tag == tag
-        }).map((article)=> {
-            return (React.createElement("li", {key: article.id}, 
-                React.createElement("div", {className: "inside"}, 
-                    React.createElement("h2", {className: "title"}, React.createElement(Link, {to: "/article/" + article.id}, article.title)), 
-                    React.createElement("div", {className: "icon"}, 
-                        React.createElement("i", {className: "fa fa-tag "}), React.createElement("span", {className: "tag"}, article.tag), 
-                        React.createElement("i", {className: "fa fa-calendar "}), React.createElement("span", {className: "date"}, article.date)
-                    ), 
-                    React.createElement("div", {className: "description"}, article.description), 
-                    React.createElement("div", {className: "more"}, React.createElement(Link, {to: "/article/" + article.id}, React.createElement("span", null, "Read More"))
-                    )
-                )
-            ));
-        });
-
-
         if (this.props.tag) {
             //console.log('render RightArea', TagHTML, TagHTML.length);
             return (
               React.createElement("div", {className: "rightArea"}, 
-                  React.createElement("div", {className: "nav"}, 
-                      React.createElement("ul", null, 
-                          TagHTML
-                      )
-                  )
+                React.createElement(Tag, {tag: this.props.tag})
               )
             )
         } else if (this.props.article) {
-            let article = ARTICLE[this.props.article - 1];
-            //console.log(this.props.article);
-            let articleHTML = (
-              React.createElement("div", {className: "inside"}, 
-                  React.createElement("h2", {className: "title"}, article.title), 
-                  React.createElement("div", {className: "icon"}, React.createElement("i", {className: "fa fa-tag "}), React.createElement("span", {className: "tag"}, article.tag), 
-                  React.createElement("i", {className: "fa fa-calendar "}), React.createElement("span", {className: "date"}, article.date)), 
-                  React.createElement("div", {className: "description", dangerouslySetInnerHTML: {__html:marked(article.content)}})
-              )
-            );
+
             return (
               React.createElement("div", {className: "rightArea"}, 
-                  React.createElement("div", {className: "article"}, 
-                      articleHTML
-                  )
+                React.createElement(ArticleMain, {article: this.props.article})
               )
 
             );
