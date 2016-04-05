@@ -1,0 +1,158 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+img {
+  border: none;
+}
+input,
+select,
+textarea {
+  outline: none;
+  border: none;
+  background: none;
+}
+textarea {
+  resize: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font: 500 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+}
+.phone {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url("../img/pnone.png") no-repeat;
+  background-size: 100% 100% ;
+  width: 441px;
+  height: 672px;
+}
+.contain {
+  width: 318px;
+  height: 672px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main {
+  position: absolute;
+  left: 0;
+  width: 882px;
+  height: 672px;
+  display: flex;
+  transition: all 0.1s;
+}
+.set {
+  background: url("../img/set2.png") no-repeat;
+  background-size: 100% 100% ;
+  width: 318px;
+  height: 587px;
+  margin-right: 63px;
+}
+.title {
+  margin: 0 auto;
+  background: url("../img/title.png") no-repeat;
+  background-size: 100% 100% ;
+  width: 318px;
+  height: 672px;
+}
+.title ul {
+  width: 318px;
+  height: 341px;
+  margin: 0 auto;
+  padding-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.title ul li {
+  margin-left: 55px;
+}
+.title ul li img {
+  display: block;
+  height: 70px;
+  width: 70px;
+}
+.title ul li p {
+  color: #fff;
+  text-align: center;
+}
+.about {
+  width: 318px;
+  height: 672px;
+  margin-right: 63px;
+}
+.about .con {
+  margin-top: 100px;
+  width: 318px;
+  height: 474px;
+  background-color: #fff;
+}
+.about .con header {
+  height: 40px;
+  width: 100%;
+  background-color: #f65251;
+  border-top-right-radius: 3px;
+  display: flex;
+}
+.about .con header .back {
+  display: flex;
+}
+.about .con header .back img {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+.about .con header .back span {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+}
+.about .con header h2 {
+  flex: 1;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 0;
+  padding-left: 56px;
+}
+.about .con .content > img {
+  margin: 100px auto 0;
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+.about .con .content .titleSmall {
+  width: 200px;
+  margin: 0 auto;
+}
+.about .con .content .titleSmall img {
+  display: block;
+  width: 200px;
+}
+.about .con .content .titleSmall span {
+  width: 200px;
+  height: 30px;
+  display: block;
+  line-height: 30px;
+  text-align: center;
+  color: #959494;
+}
+.about .con .content footer img {
+  width: 200px;
+  display: block;
+  margin: 30px auto;
+}

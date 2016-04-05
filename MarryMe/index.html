@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/master.css">
+    <title>MarryMe</title>
+</head>
+<body>
+<div class="phone">
+    <div class="contain">
+        <div class="main">
+            <div class="set">
+                <nav class="title">
+                    <ul>
+                        <li><a><img src="./img/1.png" alt="">
+                            <p>婚礼策划</p></a></li>
+                        <li><a><img src="./img/2.png" alt="">
+                            <p>求婚策划</p></a></li>
+                        <li><a><img src="./img/3.png" alt="">
+                            <p>蜜月旅行</p></a></li>
+                        <li><a><img src="./img/4.png" alt="">
+                            <p>精致设计</p></a></li>
+                        <li><a><img src="./img/5.png" alt="">
+                            <p>案例分享</p></a></li>
+                        <li><a><img src="./img/6.png" alt="">
+                            <p>关于我们</p></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>婚礼策划</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>页面开发中，敬请期待...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>求婚策划</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>页面开发中，敬请期待...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>蜜月旅行</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>页面开发中，敬请期待...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>精致设计</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>页面开发中，敬请期待...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>案例分享</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>页面开发中，敬请期待...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about">
+                <div class="con">
+                    <header>
+                        <div class="back">
+                            <img src="./img/back.png" alt="">
+                            <span>返回</span>
+                        </div>
+                        <h2>关于我们</h2>
+                    </header>
+                    <div class="content">
+                        <img src="./img/icon.png" alt="">
+                        <div class="titleSmall">
+                            <img src="./img/titleSmall.png" alt="">
+                            <span>1.0.0 展示版</span>
+                        </div>
+                        <footer>
+                            <img src="./img/footer.png" alt="">
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var $ = document.querySelectorAll.bind(document);
+    var list = document.getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++) {
+        list[i].addEventListener("click", (function (i) {
+            return function (){
+                var main = document.getElementsByClassName("main")[0];
+                console.log('c',i );
+                main.style.left = -382 * (i+1) + "px";
+            }
+        })(i));
+    }
+    var back = document.getElementsByClassName("back");
+    for (i = 0; i < back.length; i++) {
+        back[i].addEventListener("click", function () {
+            var main = document.getElementsByClassName("main")[0];
+            main.style.left = "0";
+        })
+    }
+
+</script>
+</body>
+</html>
