@@ -17,6 +17,11 @@ logbook:
 	cp -Rf ../Logbook/bower_components logbook/
 	cp -Rf ../Logbook/index.html logbook/
 	cp -Rf ../Logbook/public logbook/
+
+MarryMe:
+	cp -Rf ../MarryMe MarryMe/
+	rm -rf ./MarryMe/.git
+
 deploy:
 	ssh -v hi-hi.cn "cd www && git pull"
 

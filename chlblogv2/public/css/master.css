@@ -145,6 +145,11 @@ body {
 #mainBody .mainBody .main .content .leftArea {
   width: 200px;
 }
+@media screen and (max-width: 1000px) {
+  #mainBody .mainBody .main .content .leftArea {
+    display: none;
+  }
+}
 #mainBody .mainBody .main .content .leftArea .classify {
   width: 150px;
   font-size: 14px;
