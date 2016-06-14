@@ -516,7 +516,7 @@ const Section5 = React.createClass({displayName: "Section5",
             return (
                 React.createElement("li", null, 
                     React.createElement("div", {className: "head"}, 
-                        React.createElement("div", null, React.createElement("span", {className: "user"}, t.name), "发起话题:", t.topicalTheme), 
+                        React.createElement("div", null, React.createElement("span", {className: "user"}, t.userName), "发起话题:", t.topicalTheme), 
                         t.topical
                     ), 
                     React.createElement(CommentModule, {topical: t, user: this.props.user})
