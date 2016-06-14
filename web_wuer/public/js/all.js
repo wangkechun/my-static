@@ -48,42 +48,42 @@ const Story = [
         time: "2016-06-09",
         content: "一年一度的端午节到了,不能回家的小伙伴们在男生寝室开启了包粽子之旅,香喷喷的粽子让大家都垂涎三尺",
         img: [
-            "../../public/img/rice-dumplings.jpg"
+            "./public/img/rice-dumplings.jpg"
         ]
     }
 ];
 const Prize = [
     {
         name:"2013年五四红旗团支部",
-        src:"../../public/img/prize-01.jpg"
+        src:"./public/img/prize-01.jpg"
     },
     {
         name:"2014-2015年度模范班集体",
-        src:"../../public/img/prize_02.jpg"
+        src:"./public/img/prize_02.jpg"
     },
     {
         name:"2013年拔河比赛优秀个人奖",
-        src:"../../public/img/prize_03.jpg"
+        src:"./public/img/prize_03.jpg"
     },
     {
         name:"2014-2015年度百优宿舍",
-        src:"../../public/img/prize-01.jpg"
+        src:"./public/img/prize-01.jpg"
     },
     {
         name:"2013-2014年度百优宿舍",
-        src:"../../public/img/prize-02.jpg"
+        src:"./public/img/prize-02.jpg"
     },
     {
         name:"2014-2015年度文明宿舍",
-        src:"../../public/img/prize-03.jpg"
+        src:"./public/img/prize-03.jpg"
     },
     {
         name:"第十届宿舍文化节学习型宿舍",
-        src:"../../public/img/prize-04.jpg"
+        src:"./public/img/prize-04.jpg"
     },
     {
         name:"第八届宿舍文化节雅室设计最具特色奖",
-        src:"../../public/img/prize-05.jpg"
+        src:"./public/img/prize-05.jpg"
     },
 ];
 const Users = [
@@ -726,7 +726,7 @@ const Section3 = React.createClass({displayName: "Section3",
         });
         return (
             React.createElement("section", {className: "section3"}, 
-                React.createElement("div", {className: "logo"}, React.createElement("img", {src: "../../public/img/logo_prize.png", alt: ""})), 
+                React.createElement("div", {className: "logo"}, React.createElement("img", {src: "./public/img/logo_prize.png", alt: ""})), 
                 React.createElement("ul", {className: "prize"}, 
                     list
                 )
