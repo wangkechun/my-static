@@ -6,6 +6,8 @@ var path = require('path');
 var react = require('gulp-react');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
+var babel = require('gulp-babel');
+var prefix = require("gulp-autoprefixer");
 var runSequence = require('run-sequence');
 
 gulp.task('default', function () {
@@ -17,12 +19,16 @@ gulp.task('less', function () {
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
+        .pipe(prefix(["last 2 versions"], { cascade: true }))
         .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('jsx', function () {
     return gulp.src(["./src/jsx/Util.js","./src/jsx/Config.js","./src/jsx/Story.js","./src/jsx/Prize.js","./src/jsx/User.js","./src/jsx/Login.js","./src/jsx/Section5.js","./src/jsx/Section4.js","./src/jsx/Section3.js","./src/jsx/Section2.js","./src/jsx/Section1.js","./src/jsx/Content.js","./src/jsx/Nav.js","./src/jsx/Header.js","./src/jsx/Main.js","./src/jsx/Router.js"])
-        .pipe(react())
+        .pipe(babel({
+            presets: ["react",'es2015']
+
+        }))
         .on('error', function(err){
             console.log(err);
             this.end();
