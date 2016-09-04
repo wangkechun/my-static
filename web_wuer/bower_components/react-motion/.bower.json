@@ -42,7 +42,7 @@
     "Content-Length": "37870",
     "Content-Type": "application/zip; charset=utf-8"
   },
-  "_source": "https://npmcdn.com/react-motion/bower.zip",
+  "_source": "https://unpkg.com/react-motion/bower.zip",
   "_target": "*",
-  "_originalSource": "https://npmcdn.com/react-motion/bower.zip"
+  "_originalSource": "https://unpkg.com/react-motion/bower.zip"
 }
